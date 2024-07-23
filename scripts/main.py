@@ -74,6 +74,21 @@ def calculateOHLC():
     except Exception as e:
         print(e)
 
+    #copy data to allData.csv
+    try:
+        # Open the source file in read mode
+        with open('./BTCData/btcData.csv', 'r') as src:
+            # Read the contents of the source file
+            data = src.read()
+
+        # Open the target file in append mode
+        with open("./BTCData/bitcoinData.csv", 'a') as tgt:
+            # Write the data to the target file
+            tgt.write(data)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
     # clear data
     with open("./BTCData/btcData.csv", 'w') as file:
         # Write the header
